@@ -76,6 +76,7 @@ function ViewMainModal(buttonPopup, setButtonPopup) {
                   theUserObject = currSnap.data()
               }
           }
+          if (theUserObject === "") alert("The user could not be found!")
           setUserData(prevUserData => [...prevUserData, theUserObject])
           setGroupContributionstate(theUserObject.groupContr)
           setbooksReadState(theUserObject.booksRead)
@@ -85,7 +86,7 @@ function ViewMainModal(buttonPopup, setButtonPopup) {
           setNumBooksReadState(theUserObject.numberOfBooks)
           setnumBooksReadList(theUserObject.numBooksList)
           setpagesReadList(theUserObject.pagesReadList)
-          setProgress(theUserObject.currBookProgress ? theUserObject.currBookProgress : 0)
+          setProgress(theUserObject.currBookProgress)
           setNameState(theUserObject.name)
           setChartLabelsState(theUserObject.chartLabels)
           setUserProfilePicUrl(theUserObject.imgUrl)
