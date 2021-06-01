@@ -10,6 +10,7 @@ import Chart from './components/Chart.js'
 import {useAuth} from '../../contexts/AuthContext';
 
 import {db} from '../../firebase';
+import { useRouteMatch } from 'react-router';
 
 // function ReadFromDB() {
 //   const [userData, setUserData] = useState([])
@@ -89,7 +90,7 @@ function ViewMainModal(buttonPopup, setButtonPopup) {
   const [userProfilePicUrl, setUserProfilePicUrl] = useState('')
 
 
-  const {currentUserID} = "2tnFZtmvdyZMo3jNzoeizfDPU1v1"
+  const currentUserID = useAuth().currentUser.uid
  
 
   useEffect(() => { 
@@ -101,8 +102,7 @@ function ViewMainModal(buttonPopup, setButtonPopup) {
           for (var i= 0; i < snapshot.docs.length; i++) {
               const currSnap = snapshot.docs[i]
               console.log('curr', currSnap.id)
-              if (currSnap.id === "2tnFZtmvdyZMo3jNzoeizfDPU1v1") {
-                console.log("got ittttttt")
+              if (currSnap.id === currentUserID) {
                   var theUserObject = currSnap.data()
               }
           }
@@ -120,9 +120,7 @@ function ViewMainModal(buttonPopup, setButtonPopup) {
           setNameState(theUserObject.name)
           setChartLabelsState(theUserObject.chartLabels)
           setUserProfilePicUrl(theUserObject.imgUrl)
-
-          console.log(userData)
-          console.log("Got the data", theUserObject)
+          
       });
 
       db
@@ -317,7 +315,7 @@ function ProfileImage() {
   const [buttonPopup, setButtonPopup] = useState(false)
   const [userProfilePicUrl, setUserProfilePicUrl] = useState('')
   const [currBookPicUrl, setCurrPicUrl] = useState('')
-  const {currentUserID} = "2tnFZtmvdyZMo3jNzoeizfDPU1v1";
+  const currentUserID = useAuth().currentUser.uid;
 
   useEffect(() => { 
     db
@@ -326,7 +324,7 @@ function ProfileImage() {
       .then((snapshot) => {
         for (var i= 0; i < snapshot.docs.length; i++) {
           const currSnap = snapshot.docs[i]
-          if (currSnap.id === "2tnFZtmvdyZMo3jNzoeizfDPU1v1") {
+          if (currSnap.id === currentUserID) {
             var theUserObject = currSnap.data()
           }
         }

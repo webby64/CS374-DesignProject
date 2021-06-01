@@ -22,8 +22,8 @@ export default function Login() {
             await login(emailRef.current.value, passwordRef.current.value);
             //this is gonna bring us to that dashboard page
             history.push("/")
-        } catch {
-            setError("Failed To Sign In");
+        } catch(error) {
+            setError(error.message)
         }
         setLoading(false);
     }

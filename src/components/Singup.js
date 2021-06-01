@@ -37,8 +37,8 @@ export default function Signup() {
             setLoading(true);
             await signup(emailRef.current.value, passwordRef.current.value);
             history.push({pathname : "/quiz", state : {name : nameRef.current.value}});
-        } catch {
-            setError("Failed To Create An Account");
+        } catch(error) {
+            setError(error.message);
         }
         setLoading(false);
     }

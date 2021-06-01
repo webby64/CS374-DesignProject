@@ -1,13 +1,12 @@
 
 
 .sent{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    background-color: blue;
+    border-color: blue;
 }
 
 
 .received{
-    display: flex;
-    justify-content: flex-end;
+    background-color: white;
+    border-color: white;
 }

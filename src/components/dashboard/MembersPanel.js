@@ -11,7 +11,7 @@ export default function MembersPanel(props) {
     return (
         <Card 
             className = "mt-4"
-            style = {{"width" : "17rem", "backgroundColor" : "#FF9B05", 
+            style = {{"width" : "17rem", "backgroundColor" : "#ff9b05", 
             "color" : "white", "border" : "solid 2px white",
             "padding" : "0", "margin" : "0"}}>
             <Card.Body>
@@ -22,7 +22,7 @@ export default function MembersPanel(props) {
                     <Card.Title className = "mt-2">Group Members:</Card.Title>
                 </Container>
                 <ListGroup>
-                    {props.groupMembers.map((member, index) =><ListGroupItem style = {{"backgroundColor" : "#FF9B05", "border" : "0"}} key = {index}>{ListGroupUser(member.name)}</ListGroupItem>)}
+                    {props.groupMembers.map((member, index) =><ListGroupItem style = {{"backgroundColor" : "#ff9b05", "border" : "0"}} key = {index}>{ListGroupUser(member.name)}</ListGroupItem>)}
                 </ListGroup>
             </Card.Body>
         </Card>
@@ -32,7 +32,7 @@ export default function MembersPanel(props) {
 
 function ListGroupUser(memberInfo) {
     return (
-        <Button style = {{"backgroundColor" : "white", "color" : "#FF9B05", "border" : "solid 2px white", "width" : "200px", "maxHeight" : "30px"}}>
+        <Button style = {{"backgroundColor" : "white", "color" : "#ff9b05", "border" : "solid 2px white", "width" : "200px", "maxHeight" : "30px"}}>
             {<strong>{memberInfo}</strong>}
         </Button>
     )

@@ -4,8 +4,6 @@ import 'react-circular-progressbar/dist/styles.css';
 import {db} from '../../firebase';
 
 
-
-
 export default function UserProgress(props) {
     const [numberOfMessages, setNumberOfMessages] = useState(0);
     const [numberOfChapters, setNumberOfChapters] = useState(0);
@@ -30,7 +28,8 @@ export default function UserProgress(props) {
 
     return (
         <div style = {{
-            "backgroundColor" : "#FF9B05", display : "flex", "height" : "275px",
+            zIndex: 1,
+            "backgroundColor" : "#ff9b05", display : "flex", "height" : "275px",
             width : "270px", border : "2px solid white", borderRadius : "0.4em",
             flexDirection : "column" , alignItems: "center", "marginTop" : "2em"
         }}>

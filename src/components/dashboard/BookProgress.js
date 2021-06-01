@@ -7,7 +7,7 @@ export default function BookProgress(props) {
     return (
         <Card 
             style = {{
-                "textAlign" : "center", "backgroundColor" : "#FF9B05", "color" : "white",
+                "textAlign" : "center", "backgroundColor" : "#ff9b05", "color" : "white",
                 "border" : "solid 2px white", "width" : "600px", "marginTop" : "2em"
             }}>
             <Card.Body>

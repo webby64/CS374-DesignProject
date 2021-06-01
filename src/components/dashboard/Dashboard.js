@@ -13,6 +13,8 @@ import Chatroom from './Chatroom';
 import Tools from './Tools';
 import UserProgress from './UserProgress';
 
+import ProfileImage from './ProfileImage'
+
 import Loader from "react-loader-spinner";
 //import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
@@ -55,7 +57,7 @@ export default function Dashboard() {
 
     function updateChapterLevels() {
         groupData.members.forEach((memberID) => {
-            db.collection("Users").doc(memberID).update({
+            db.collection("Users").doc(memberID.uid).update({
                 chaptersRead : firebase.firestore.FieldValue.increment(1)
             })
         })
@@ -160,12 +162,14 @@ export default function Dashboard() {
             <Row>
                 <Col></Col>
                 <Col>{fetched && groupIsFull && <BookProgress bookName = {bookData.title} groupProgress = {(groupData.currentChapterNumber - 1) / groupData.bookInfo.totalChapterNumber} startDate = {groupData.createdAt}/>}</Col>
+                
                 <Col>
                     <div className = "w-100 text-center mt-2">
+                        <Col style = {{marginRight:'0px'}}>{fetched && groupIsFull &&<ProfileImage/>}</Col>
                         <Button onClick = {handleLogout} style = {{
-                            "backgroundColor" : "#FF9B05",
+                            "backgroundColor" : "#ff9b05",
                             "border" : "1px solid white",
-                            "marginTop" : "3em"
+                            "marginTop" : "10px"
                         }}> <strong>Log Out </strong> </Button>
                     </div>
                 </Col>
@@ -200,7 +204,7 @@ export default function Dashboard() {
                 </Col>
             </Row> : 
                 <div>
-                    <Loader style = {{"marginLeft" : "45vw", "marginTop" : "20vh"}} color = "#FF9B05" />
+                    <Loader style = {{"marginLeft" : "45vw", "marginTop" : "20vh"}} color = "#ff9b05" />
                     <h2 style = {{"marginLeft" : "35vw", "color" : "white"}}>Wait for group members to join</h2>
                 </div>
             }

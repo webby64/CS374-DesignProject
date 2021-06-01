@@ -66,6 +66,12 @@ export default function Questions(props) {
 
 
     async function addToUsers(groupInfo) {
+        const ImgUrls = [
+            "https://i.pinimg.com/originals/09/92/3b/09923b7849459ce6539a999f946a9a6c.png",
+            "https://i.pinimg.com/originals/b1/92/4d/b1924dce177345b5485bb5490ab3441f.jpg",
+            "https://i.pinimg.com/originals/14/b2/3f/14b23fa496aadc0c175547dbfb161212.jpg",
+            "https://cdn0.iconfinder.com/data/icons/cat-avatar-filled/64/Cat_avatar_kitten-35-512.png",
+        ]
         return new Promise (resolve => {
             db.collection("Users").doc(currentUser.uid).set({
             groupInfo : groupInfo,
@@ -79,11 +85,11 @@ export default function Questions(props) {
             favAuthor: "",
             favBook: "",
             numberOfBooks: 0,
-            numBookList: [],
+            numBooksList: [],
             pagesReadList: [],
             currBookProgress: 0,
-            chartLabels: [],
-            imgUrl: ""
+            chartLabels: [1,2,3,4,5],
+            imgUrl: ImgUrls[Math.floor(Math.random() * ImgUrls.length)]
             
         }).then(() => {resolve()})})
     }

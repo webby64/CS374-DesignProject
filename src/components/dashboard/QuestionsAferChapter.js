@@ -35,7 +35,7 @@ export default function QuestionsAfterChapter(props) {
 
     return (
         <Container >
-            <Card style = {{"backgroundColor" : "white", "color" : "#FF9B05", "fontWeight" : "800", "border" : "2px solid "}}>
+            <Card style = {{"backgroundColor" : "white", "color" : "#ff9b05", "fontWeight" : "800", "border" : "2px solid "}}>
                 <Card.Body>
                     <Card.Title><strong>Discuss about the following questions:</strong></Card.Title>
                     {questions.map((question, index) => <QuestionContainer key = {index} text = {question.text} incrementClickedNumber = {() => {setClickedNumber(prev => prev + 1)}}/>)}

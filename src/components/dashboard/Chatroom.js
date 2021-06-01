@@ -58,8 +58,9 @@ export default function ChatRoom(props) {
     }, [])
 
   
-
-  
+    // added this to support enter to sent message
+    const sendMessageButton = React.useRef(null)
+    
     const [newMessage, setNewMessage] = useState('');
   
     const sendMessage = async (e) => {
@@ -83,7 +84,7 @@ export default function ChatRoom(props) {
           {/* <h2>{JSON.stringify(membersObject)}</h2> */}
           <Container className = "ml-0 mr-0"
             style = {{
-              "backgroundColor" : "#FF9B05", "height" : "500px", "width" : "500px",
+              "backgroundColor" : "#ff9b05", "height" : "500px", "width" : "500px",
               "border" : "solid 2px white", "borderRadius" : "0.4em", "marginTop" : "3em",
               "display" : "flex", "justifyContent" : "space-between", "flexDirection" : "column"
             }}
@@ -113,11 +114,14 @@ export default function ChatRoom(props) {
                   /> */}
                   <Form.Group>
                     <Form.Control as = "textarea" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} 
-                    placeholder="Discuss!" rows = {1} style = {{"margin" : "0.5em", "borderRadius" : "0.6 em"}}/>
+                    placeholder="Discuss!" rows = {1} style = {{'width': '365px', "margin" : "0.5em", "borderRadius" : "0.6 em"}}
+                    onKeyDown = {(e) => {if (e.key === 'Enter') {e.preventDefault() ;sendMessageButton.current.click()}}}
+                    />
                   </Form.Group>
                   <Button 
                     type="submit" disabled={!newMessage}
                     style = {{"margin" : "0.5em"}}
+                    ref = {sendMessageButton}
                   > Send </Button>
               </Form>
           </Container>
@@ -135,20 +139,21 @@ export default function ChatRoom(props) {
     })
   
     const messageClass = uid === props.currentUserID ? 'flex-end' : 'flex-start';
+    const messageColor = uid === props.currentUserID ? '#218aff' : 'white';
   
     return (
     <Container style = {{"display" : "flex", "justifyContent" : messageClass}}>
       <div>
+        <p style = {{margin : "0", padding : "0"}}> {membersObject[uid]} </p>
         <div className={`${messageClass}`}
           style = {{
             "border" : "solid 2px white", "borderRadius" : "0.4em",
-            "overflowY" : "scroll", "width" : "150px", "marginBottom" : "0.2em",
-            "backgroundColor" : "white"
+            "width" : "150px", "marginBottom" : "0.2em",
+            "backgroundColor" : messageColor
           }}
         >
           <p>{text}</p>
         </div>
-        <p style = {{margin : "0", padding : "0"}}>{membersObject[uid]}</p>
       </div>
     </Container>)
   }
