@@ -1,0 +1,13 @@
+
+
+.sent{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+
+.received{
+    display: flex;
+    justify-content: flex-end;
+}
