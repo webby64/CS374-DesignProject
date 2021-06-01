@@ -12,38 +12,6 @@ import {useAuth} from '../../contexts/AuthContext';
 import {db} from '../../firebase';
 import { useRouteMatch } from 'react-router';
 
-// function ReadFromDB() {
-//   const [userData, setUserData] = useState([])
-
-//   useEffect(() => { 
-//     firebase
-//       .firestore()
-//       .collection('Users')
-//       .get()
-//       .then((snapshot) => {
-          
-//           for (var i= 0; i < snapshot.docs.length; i++) {
-//               const currSnap = snapshot.docs[i]
-//               if (currSnap.id === currentUserID) {
-//                   var theUserObject = currSnap.data()
-//               }
-//           }
-          
-//           setUserData(prevUserData => [...prevUserData, theUserObject])
-//           console.log(userData)
-//           console.log("Got the data", theUserObject)
-
-//       })
-//   }, [])
-
-//   return (
-//     <div>
-//       {userData.length === 0 ? <h2>Loading...</h2> : <h2>{JSON.stringify(userData)}</h2>}
-//     </div>
-    
-//   )
-// }
-
 function NonIdiomaticList(props) {
   // Build an array of items
   let array = [];
@@ -52,7 +20,6 @@ function NonIdiomaticList(props) {
       <ul  key = {i} id="eachListItem"> {props.items[i]} </ul>
     );
   }
-
   // Render it
   return (
     <div>
@@ -116,7 +83,7 @@ function ViewMainModal(buttonPopup, setButtonPopup) {
           setNumBooksReadState(theUserObject.numberOfBooks)
           setnumBooksReadList(theUserObject.numBooksList)
           setpagesReadList(theUserObject.pagesReadList)
-          setProgress(theUserObject.currBookProgress)
+          setProgress(theUserObject.chaptersRead * 20)
           setNameState(theUserObject.name)
           setChartLabelsState(theUserObject.chartLabels)
           setUserProfilePicUrl(theUserObject.imgUrl)

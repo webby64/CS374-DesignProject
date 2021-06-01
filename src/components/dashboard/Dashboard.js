@@ -205,7 +205,7 @@ export default function Dashboard() {
             </Row> : 
                 <div>
                     <Loader style = {{"marginLeft" : "45vw", "marginTop" : "20vh"}} color = "#ff9b05" />
-                    <h2 style = {{"marginLeft" : "35vw", "color" : "white"}}>Wait for group members to join</h2>
+                    <h2 style = {{"marginLeft" : "35vw", "color" : "white"}}>Please wait for group members to join</h2>
                 </div>
             }
         </Container>

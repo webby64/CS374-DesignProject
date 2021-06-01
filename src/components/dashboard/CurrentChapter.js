@@ -11,23 +11,23 @@ export default function CurrentChapter(props) {
 
     return (
         <Container
-            style = {{zIndex: 1,"margin" : "0", "padding" : "0"}}
+            style = {{"zIndex": 1,"margin" : "0", "padding" : "0"}}
             className = "mt-4"
         >
             <Button
                 onClick = {() => {buttonHandler()}}
-                style = {{zIndex: 1,"backgroundColor" : "#ff9b05", "border" : "solid 2px white", "marginTop" : "10px"}}>
+                style = {{'zIndex': 1, "width" : "18em","backgroundColor" : "#ff9b05", "border" : "solid 2px white", "marginTop" : "10px"}}>
                 <strong>Proceed To The Next Chapter</strong>
                 
             </Button>
             <Card
                 className = "mt-4"
-                style = {{"width" : "18rem", "backgroundColor" : "#ff9b05", "color" : "white", "border" : "solid 2px white"}}
+                style = {{"width" : "18em", "backgroundColor" : "#ff9b05", "color" : "white", "border" : "solid 2px white"}}
             >
                 <Card.Body>
                     <Card.Title>{`Chapter ${props.currentChapter}`}</Card.Title>
                     <Card.Text>
-                        <strong>The name of the current chapter</strong>
+                        <strong>chapter</strong>
                     </Card.Text>
                     <Card.Text>
                         <strong>{`${parseInt(((new Date(props.currentChapterStartDate.toDate()) - new Date())) / (1000 * 60 * 60 * 24))} days`}</strong>
