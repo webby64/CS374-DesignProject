@@ -85,7 +85,9 @@ export default function ChatRoom(props) {
           {/* <h2>{JSON.stringify(membersObject)}</h2> */}
           <Container className = "ml-0 mr-0"
             style = {{
-              "backgroundColor" : "transparent", "height" : "450px", "width" : "500px",
+              'position': 'relative',
+              "zIndex": 2,
+              "backgroundColor" : "#CCD4E6", "height" : "450px", "width" : "500px",
               "border" : "solid 2px white", "borderRadius" : "0.4em", "marginTop" : "3em",
               "display" : "flex", "justifyContent" : "space-between", "flexDirection" : "column"
             }}>
@@ -100,7 +102,8 @@ export default function ChatRoom(props) {
                 {{
                   // "border" : "solid 2px white", "borderRadius" : "0.4em",
                   "width" : "100%",
-                  "display" : "flex", "justifyContent" : "space-between"
+                  "display" : "flex", "justifyContent" : "space-between", 'marginTop' : '10px',
+                  'borderTop' : 'solid white 3px'
                 }}>
                   {/* <input 
                     value={newMessage} onChange={(e) => setNewMessage(e.target.value)} 
@@ -115,7 +118,7 @@ export default function ChatRoom(props) {
                   </Form.Group>
                   <Button 
                     type="submit" disabled={!newMessage}
-                    style = {{"margin" : "0.5em", "cursor" : "pointer", "fontWeight" : "bold"}}
+                    style = {{'marginBottom': '5px','marginTop': '5px' , "cursor" : "pointer", "fontWeight" : "bold"}}
                     ref = {sendMessageButton}
                   > Send </Button>
               </Form>

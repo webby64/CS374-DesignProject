@@ -22,7 +22,7 @@ export default function CurrentChapter(props) {
                 <Card.Body>
                     <Card.Title style={{"color" : "black","fontSize" : "2.5rem"}}>{`Chapter ${props.currentChapter}`}</Card.Title>
                     <Card.Text style={{"fontSize" : "1.2em", "color" : "black", "fontWeight" : "300"}}>
-                        The name of the current chapter
+                        Chapter
                     </Card.Text>
                     <Card.Text style={{"color":"black", "fontSize":"1.5rem", "fontWeight":"500"}}>
                         {`${parseInt(((new Date(props.currentChapterStartDate.toDate()) - new Date())) / (1000 * 60 * 60 * 24))} days`}
