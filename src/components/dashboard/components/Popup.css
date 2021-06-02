@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .popup {
     position: fixed;
     top: 0;
@@ -33,4 +34,41 @@
 .popup-inner .close-btn:hover {
     background-color: red;
     
+=======
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1;
+}
+
+.popup-inner {
+    position: relative;
+    padding: 32px;
+    width: 700px;
+    max-width: 700px;
+    height: 400px;
+    background-color:#CCD4E6;
+}
+
+.popup-inner .close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background-color:rgb(199, 104, 104);
+    border-radius: 15px;
+}
+
+.popup-inner .close-btn:hover {
+    background-color: red;
+    
+>>>>>>> bd53bb5eee25a4c491d1725a871c3b979a0193d8
 }
