@@ -9,8 +9,8 @@
 
 #profileImg-frontpage {
   border-radius: 50%;
-  width:100px;
-  height: 100px;
+  width:80px;
+  height: 80px;
   cursor: pointer;
   border:5px solid white;
   /* position: absolute; 
@@ -19,9 +19,7 @@
 }
 
 #profileImg-frontpage:hover {
-  border-radius: 60%;
-  width: 105px;
-  border-color: greenyellow;
+  border-color: green;
 }
 
 

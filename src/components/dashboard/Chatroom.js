@@ -3,6 +3,7 @@ import firebase from 'firebase/app';
 import {db} from '../../firebase';
 import {Container, Row, Form, Button} from 'react-bootstrap';
 import "./Chatroom.css";
+import "./Chat.css";
 
 import {useCollectionData} from 'react-firebase-hooks/firestore';
 
@@ -84,12 +85,11 @@ export default function ChatRoom(props) {
           {/* <h2>{JSON.stringify(membersObject)}</h2> */}
           <Container className = "ml-0 mr-0"
             style = {{
-              "backgroundColor" : "#ff9b05", "height" : "500px", "width" : "500px",
+              "backgroundColor" : "transparent", "height" : "450px", "width" : "500px",
               "border" : "solid 2px white", "borderRadius" : "0.4em", "marginTop" : "3em",
               "display" : "flex", "justifyContent" : "space-between", "flexDirection" : "column"
-            }}
-          >
-              <main style = {{"height" : "450px", "overflowY" : "scroll"}}>
+            }}>
+              <main style = {{"marginTop" : "20px", "overflowY" : "scroll"}}>
                 {messages && membersObject && messages.map(msg => <ChatMessage key={msg.id} message={msg} currentUserID = {props.currentUserID}  membersObject = {membersObject}/>)}
                 {/* {messages && JSON.stringify(messages)} */}
                 <span ref={dummy}></span>
@@ -120,7 +120,7 @@ export default function ChatRoom(props) {
                   </Form.Group>
                   <Button 
                     type="submit" disabled={!newMessage}
-                    style = {{"margin" : "0.5em"}}
+                    style = {{"margin" : "0.5em", "cursor" : "pointer", "fontWeight" : "bold"}}
                     ref = {sendMessageButton}
                   > Send </Button>
               </Form>
@@ -140,18 +140,20 @@ export default function ChatRoom(props) {
   
     const messageClass = uid === props.currentUserID ? 'flex-end' : 'flex-start';
     const messageColor = uid === props.currentUserID ? '#218aff' : 'white';
+    const textColor = uid === props.currentUserID ? 'white' : 'black';
   
     return (
     <Container style = {{"display" : "flex", "justifyContent" : messageClass}}>
       <div>
-        <p style = {{margin : "0", padding : "0"}}> {membersObject[uid]} </p>
+        <p style = {{"margin" : "0", "padding" : "0"}}> {membersObject[uid]} </p>
         <div className={`${messageClass}`}
-          style = {{
-            "border" : "solid 2px white", "borderRadius" : "0.4em",
-            "width" : "150px", "marginBottom" : "0.2em",
-            "backgroundColor" : messageColor
-          }}
-        >
+          style = {{"borderRadius" : "20px", "maxWidth" : "300px", "wordWrap" : "break-word",
+                    "fontSize": "15px",
+                    "padding": "10px 7px",
+                    "lineHeight": "18px",
+                    "backgroundColor" : `${messageColor}`,
+                    "color": `${textColor}`,
+                  }}>
           <p>{text}</p>
         </div>
       </div>

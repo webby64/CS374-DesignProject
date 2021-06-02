@@ -1,0 +1,15 @@
+#questionsContainer {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+}
+
+#yesNoQuestions:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+#yesNoQuestions:hover {
+    background: #00A3eD;
+    transition: 250ms;
+}   

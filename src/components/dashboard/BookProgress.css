@@ -1,0 +1,10 @@
+.progress-panel {
+    position : relative;
+}
+
+.progress-label {
+    position: absolute;
+    top : 2px;
+    left : 145px;
+    color : white;
+}

@@ -11,9 +11,9 @@ export default function Tools() {
 
     return (
         <Container style = {{
-            "border": "solid 2px white", "borderRadius" : "0.4em","color" : "white", 
-            "backgroundColor" : "#ff9b05", "fontSize" : "0.6em", "width" : "295px",
-            "height" : "220px", "padding" : "0", "marginLeft" : "0"   
+            "border": "solid 2px white", "borderRadius" : "0.4em","color" : "black", 
+            "backgroundColor" : "transparent", "fontSize" : "0.6em", "width" : "295px",
+            "height" : "210px", "padding" : "0", "marginLeft" : "10px"   
         }} className = "mt-4">
             <Card.Title style = {{"marginTop" : "0.6em", "marginLeft" : "0.6em"}} className = "mt-2 center">Tools:</Card.Title>
 

@@ -29,17 +29,17 @@ export default function UserProgress(props) {
     return (
         <div style = {{
             zIndex: 1,
-            "backgroundColor" : "#ff9b05", display : "flex", "height" : "275px",
+            "backgroundColor" : "transparent", display : "flex", "height" : "220px",
             width : "270px", border : "2px solid white", borderRadius : "0.4em",
             flexDirection : "column" , alignItems: "center", "marginTop" : "2em"
         }}>
-            <h2 style = {{"fontSize" : "1.5em", marginTop : "0.3em", color : "white"}}>Your Progress: </h2>
-            <div style = {{width : "150px",height : "150px", margin : "0.4em"}}>
+            <h2 style = {{"fontSize" : "1.5em", marginTop : "0.3em", color : "black"}}>Your Progress </h2>
+            <div style = {{width : "100px",height : "100px", margin : "0.4em"}}>
                 <CircularProgressbar 
                 styles={buildStyles({
                     textSize: '16px',                
                     pathTransitionDuration: 0.5,
-                    textColor: 'white',
+                    textColor: 'black',
                     trailColor: '#E54848',
                     pathColor : "#67C947",
                     backgroundColor: '#3e98c7'
@@ -47,8 +47,8 @@ export default function UserProgress(props) {
                 value = {(numberOfMessages * 4 + (numberOfChapters * 15)) % 100} text = {`Level ${parseInt((numberOfMessages * 4 + (numberOfChapters * 15)) / 100)}`}/>
             </div>
             {fetched && <div>
-                <h4 style = {{"fontSize" : "1.2em", color : "white"}}>Messages Sent: {numberOfMessages}</h4>
-                <h4 style = {{"fontSize" : "1.2em", color : "white"}}>Chapters Read: {numberOfChapters}</h4>
+                <h4 style = {{"fontSize" : "1em", color : "black"}}>Messages Sent: {numberOfMessages}</h4>
+                <h4 style = {{"fontSize" : "1em", color : "black"}}>Chapters Read: {numberOfChapters}</h4>
             </div>}
         </div> 
     )

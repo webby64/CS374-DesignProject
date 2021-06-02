@@ -4,6 +4,7 @@ import {useAuth} from '../contexts/AuthContext';
 import {db, app} from '../firebase';
 import firebase from 'firebase/app';
 import {history, useHistory} from 'react-router-dom';
+import './Questions.css';
 
 
 export default function Questions(props) {
@@ -212,18 +213,41 @@ export default function Questions(props) {
         }
     }
 
-
+    // added
+    const UrlList = [
+        "https://images.unsplash.com/photo-1535905496755-26ae35d0ae54?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+        "https://images.unsplash.com/photo-1535905496755-26ae35d0ae54?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+        "https://images.unsplash.com/photo-1585862705417-671ae64f0eb7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+        "https://images.unsplash.com/photo-1585862705417-671ae64f0eb7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+                ]
     return (
-        <Card style = {{"marginTop" : "240px", "width" : "400px", "marginLeft" : "auto", "marginRight" : "auto"}}>
-            <Card.Title>{questions[questionCount].questionText}</Card.Title>
-            <div className = "answersContainer" style = {{"marginLeft" : "150px"}}>
-                {questions[questionCount].answerOptions.map((answerOption, index) => (
-                    <Button onClick = {() => {handleAnswerButton(answerOption);}} key = {index}>{answerOption.answerText}</Button>
-                ))}
-            </div>
-        </Card>
+        <div id = "questionsContainer" 
+            style = {{"background": `url(${UrlList[questionCount]})`}}>
+            <Card style = {{"backgroundColor" : "transparent",
+                            "marginTop" : "220px",
+                            "width" : "50%",
+                            "height" : "35%",
+                            "marginLeft" : "auto",
+                            "marginRight" : "auto",
+                            "borderRadius" : "10px",
+                            "textAlign" : "center",
+                            }}>
+                <Card.Title style = {{"color" : "white",
+                                    "fontSize" : "1.8em"
+                                    }}>
+                                    {questions[questionCount].questionText}
+                </Card.Title>
+                <div className = "answersContainer" style = {{"marginLeft" : "150px"}}>
+                    <br/>
+                    {questions[questionCount].answerOptions.map((answerOption, index) => (
+                        <Button id = "yesNoQuestions" style={{"marginLeft" : "80px", "float" : "left"}} variant="primary" onClick = {() => {handleAnswerButton(answerOption);}} key = {index}>{answerOption.answerText}</Button>
+                    ))}
+                </div>
+            </Card>
+        </div>
     )
 }
+
 
 
 

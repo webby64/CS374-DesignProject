@@ -34,6 +34,7 @@ export default function Dashboard() {
 
     const [isQuestionsPhase, setIsQuestionsPhase] = useState(false)
     const [questionsAnswered, setQuestionsAnswered] = useState(false)
+    const [logOutBorder, setLogOutBorder] = useState("white")
 
     
 
@@ -154,58 +155,43 @@ export default function Dashboard() {
     }
     
     return (
-        <Container style = {{
-            "backgroundColor" : "#03008F",
-            "padding" : "0", "margin" : "0",
-            "height" : "100vh"
-        }} fluid>
+        <Container style = {{"height" : "100vh", "width" : "100%", "margin" : "0", "padding" : "0"}} fluid>
             <Row>
-                <Col></Col>
-                <Col>{fetched && groupIsFull && <BookProgress bookName = {bookData.title} groupProgress = {(groupData.currentChapterNumber - 1) / groupData.bookInfo.totalChapterNumber} startDate = {groupData.createdAt}/>}</Col>
-                
-                <Col>
-                    <div className = "w-100 text-center mt-2">
-                        <Col style = {{marginRight:'0px'}}>{fetched && groupIsFull &&<ProfileImage/>}</Col>
-                        <Button onClick = {handleLogout} style = {{
-                            "backgroundColor" : "#ff9b05",
-                            "border" : "1px solid white",
-                            "marginTop" : "10px"
-                        }}> <strong>Log Out </strong> </Button>
-                    </div>
-                </Col>
+                <Col  md={{span: 2}} style={{"marginTop" : "5px", "marginLeft" : "5px"}}>{fetched && groupIsFull &&<ProfileImage/>}</Col>         
+                <Col md={{span: 8}}>{fetched && groupIsFull && <BookProgress bookName = {bookData.title} groupProgress = {(groupData.currentChapterNumber - 1) / groupData.bookInfo.totalChapterNumber} startDate = {groupData.createdAt}/>}</Col>
+                <Col md={{span: 1}} style={{"marginTop" : "5px", "marginLeft" : "95px"}}> <Button onClick = {handleLogout} onMouseEnter = {() => setLogOutBorder("red")} onMouseLeave = {() => setLogOutBorder("white")} style = {{"backgroundColor" : "transparent", "borderRadius" : "50%", "borderColor" : `${logOutBorder}`, "width" : "80px", "height" : "80px", "display" : "flex", "padding" : "0", "justifyContent" : "center", "alignItems" : "center", "border" : "5px solid white", "color":"black"}}> <strong>Log Out </strong> </Button></Col>
             </Row>
-            {groupIsFull && fetched ? <Row>
-                {/* <h2 style = {{"color" : "white"}}>{JSON.stringify(groupData)}</h2> */}
-                <Col className = "col-5"><Chatroom groupID = {groupData.id} genre = {bookData.genre} currentUserID = {currentUser.uid} members = {groupData.members}/></Col>
-                <Col className = "col-7">
-                    {groupIsFull && <Container style = {{"height" : "100%", marginLeft : "0"}}>
-                        <Row>
-                            <Col><UserProgress currentUserID = {currentUser.uid} /></Col>
-                            <Col><CurrentChapter currentChapter = {groupData.currentChapterNumber} currentChapterStartDate = {groupData.currentChapterStartDate} updateIsQuestionsPhase = {() => setIsQuestionsPhase(currentState => !currentState)}/></Col>
-                            
-                            {/* {<h2>{JSON.stringify(groupData)}</h2>} */}
-                            {isQuestionsPhase && 
-                                <div style = {{
-                                    "position" : "absolute", "left" : "0px", "width" : "600px", "top" : "100px"
-                                }}>
-                                    <QuestionsAfterChapter 
-                                    bookId = {bookData.id} currentChapter = {groupData.currentChapterNumber} 
-                                    genre = {bookData.genre} updateQuestionsAnswered = {() => setQuestionsAnswered(true)}/>
-                                </div>
-                            }
-                        </Row>
-                        <Row>
-                            <Col><MembersPanel groupMembers = {groupData.members}/></Col>
-                            <Col>
-                                <Tools />
-                            </Col>
-                        </Row>
-                    </Container>}
-                </Col>
-            </Row> : 
+            {groupIsFull && fetched ? 
+                <Row>
+                    {/* <h2 style = {{"color" : "white"}}>{JSON.stringify(groupData)}</h2> */}
+                    <Col className = "col-5" md={{span: 5}}><Chatroom groupID = {groupData.id} genre = {bookData.genre} currentUserID = {currentUser.uid} members = {groupData.members}/></Col>
+                    <Col className = "col-7">
+                            <Row>
+                                <Col md={{span: 1}} style ={{"marginTop":"10px"}} ><UserProgress currentUserID = {currentUser.uid} /></Col>
+                                <Col md={{span: 4, offset: 5}} style ={{}}><CurrentChapter currentChapter = {groupData.currentChapterNumber} currentChapterStartDate = {groupData.currentChapterStartDate} updateIsQuestionsPhase = {() => setIsQuestionsPhase(currentState => !currentState)}/></Col>
+                                
+                                {/* {<h2>{JSON.stringify(groupData)}</h2>} */}
+                                {isQuestionsPhase && 
+                                    <div style = {{
+                                        "position" : "absolute", "left" : "0px", "width" : "600px", "top" : "100px"
+                                    }}>
+                                        <QuestionsAfterChapter 
+                                        bookId = {bookData.id} currentChapter = {groupData.currentChapterNumber} 
+                                        genre = {bookData.genre} updateQuestionsAnswered = {() => setQuestionsAnswered(true)}/>
+                                    </div>
+                                }
+                            </Row>
+                            <Row>
+                                <Col><MembersPanel groupMembers = {groupData.members}/></Col>
+                                <Col>
+                                    <Tools/>
+                                </Col>
+                            </Row>
+                    </Col>
+                </Row> : 
                 <div>
                     <Loader style = {{"marginLeft" : "45vw", "marginTop" : "20vh"}} color = "#ff9b05" />
-                    <h2 style = {{"marginLeft" : "35vw", "color" : "white"}}>Please wait for group members to join</h2>
+                    <h2 style = {{"marginLeft" : "35vw", "color" : "white"}}>Wait for group members to join</h2>
                 </div>
             }
         </Container>

@@ -28,7 +28,7 @@ export default function Signup() {
 
         if (passwordRef.current.value !== passwordConfirmRef.current.value) {
             //we are returning because we want to exit from the function immediately if there was an error
-            return setError("Password Do not match");
+            return setError("Password Do not match. Please try again with a different password.");
         }
 
         //we use try catch because this is an async event
@@ -44,10 +44,17 @@ export default function Signup() {
     }
 
     return (
-        <>
-            <Card>
+        <div style = {{"backgroundImage" : "url('https://images.unsplash.com/photo-1535905496755-26ae35d0ae54?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80')",
+                        "height" : "100vh",
+                        "overflow" : "hidden"}}>
+            <Card style={{  "margin" : "0 auto",
+                            "float" : "none",
+                            "maxWidth" : "500px",
+                            "marginTop" : "15vh",
+                            "borderRadius" : "10px"
+                        }}>
                 <Card.Body>
-                    <h2 className = "text-center mb-4">Sign Up</h2>
+                    <h2 className = "text-center mb-4" style={{fontWeight: "bold"}}>Sign Up</h2>
                     {
                         //our current user when we refresh our page is null,
                         //firebase states local storage and tokens for us
@@ -62,9 +69,9 @@ export default function Signup() {
                         //worksfine
                     }
                     {error && <Alert variant = "danger">{error}</Alert>}
-                    <Form onSubmit = {handleSubmit}>
+                    <Form onSubmit = {handleSubmit} style={{"fontWeight" : "500"}}>
                         <Form.Group id = "name">
-                            <Form.Label>Your Name</Form.Label>
+                            <Form.Label>Username</Form.Label>
                             <Form.Control type = "text" ref = {nameRef} required/>
                         </Form.Group>
                         <Form.Group id = "email">
@@ -76,16 +83,17 @@ export default function Signup() {
                             <Form.Control type = "password" ref = {passwordRef} required/>
                         </Form.Group>
                         <Form.Group id = "password-confirm">
-                            <Form.Label>Password Confirmation</Form.Label>
+                            <Form.Label>Confirm password</Form.Label>
                             <Form.Control type = "password" ref = {passwordConfirmRef} required/>
                         </Form.Group>
+                        <br/>
                         <Button disabled = {loading} className = "w-100" type = "submit">Sign Up</Button>
                     </Form>
                 </Card.Body>
             </Card>
-            <div className = "w-100 text-center mt-2">
+            <div className = "w-100 text-center mt-2" style={{"color" : "white", "marginLeft" : "130px"}}>
                 Already Have An Account? <Link to = "/login">Login</Link>
             </div>
-        </>
+        </div>
     )
 }

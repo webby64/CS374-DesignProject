@@ -18,7 +18,7 @@ function App() {
   }, [])
   //AuthProvider prolly may be outside, but it is easier to work with it as here}
   return (
-      <div style = {{"width" : "100%", "margin" : "0", "padding" : "0"}}>
+      <div style = {{"height": "100vh", "width" : "100%", "position" : "fixed", "backgroundColor" : "#CCD4E6", "margin" : "0", "padding" : "0"}}>
         <Router>
           <AuthProvider>
             <Switch>

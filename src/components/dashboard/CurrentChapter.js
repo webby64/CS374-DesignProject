@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState} from 'react';
 import {Card, Container, Button} from 'react-bootstrap';
 
 export default function CurrentChapter(props) {
 
-
+    const [NextChapterBorder, setNextChapterBorder] = useState("white")
 
     function buttonHandler() {
         props.updateIsQuestionsPhase();
@@ -11,29 +11,32 @@ export default function CurrentChapter(props) {
 
     return (
         <Container
-            style = {{"zIndex": 1,"margin" : "0", "padding" : "0"}}
+            style = {{zIndex: 1,"margin" : "0", "padding" : "0"}}
             className = "mt-4"
         >
-            <Button
-                onClick = {() => {buttonHandler()}}
-                style = {{'zIndex': 1, "width" : "18em","backgroundColor" : "#ff9b05", "border" : "solid 2px white", "marginTop" : "10px"}}>
-                <strong>Proceed To The Next Chapter</strong>
-                
-            </Button>
+            
             <Card
                 className = "mt-4"
-                style = {{"width" : "18em", "backgroundColor" : "#ff9b05", "color" : "white", "border" : "solid 2px white"}}
+                style = {{"width" : "18rem", "backgroundColor" : "transparent", "color" : "white", "border" : "none"}}
             >
                 <Card.Body>
-                    <Card.Title>{`Chapter ${props.currentChapter}`}</Card.Title>
-                    <Card.Text>
-                        <strong>chapter</strong>
+                    <Card.Title style={{"color":"black","fontSize":"2.5rem"}}>{`Chapter ${props.currentChapter}`}</Card.Title>
+                    <Card.Text style={{"fontSize" : "1.2em", "color":"black", "fontWeight":"300"}}>
+                        The name of the current chapter
                     </Card.Text>
-                    <Card.Text>
-                        <strong>{`${parseInt(((new Date(props.currentChapterStartDate.toDate()) - new Date())) / (1000 * 60 * 60 * 24))} days`}</strong>
+                    <Card.Text style={{"color":"black", "fontSize":"1.5rem", "fontWeight":"500"}}>
+                        {`${parseInt(((new Date(props.currentChapterStartDate.toDate()) - new Date())) / (1000 * 60 * 60 * 24))} days`}
                     </Card.Text>
                 </Card.Body>
             </Card>
+
+            <Button
+                onClick = {() => {buttonHandler()}}
+                onMouseEnter = {() => setNextChapterBorder("green")}
+                onMouseLeave = {() => setNextChapterBorder("white")}
+                style = {{"fontWeight" : "600", "marginLeft" : "10px", "color" : "black", "width" : "9rem", "backgroundColor" : "transparent", "borderColor" : `${NextChapterBorder}`,"border" : "solid 2px white"}}>
+                Next Chapter
+            </Button>
         </Container>
     )
 }
