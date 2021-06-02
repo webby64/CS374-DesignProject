@@ -29,12 +29,12 @@ export default function UserProgress(props) {
     return (
         <div style = {{
             zIndex: 1,
-            "backgroundColor" : "transparent", display : "flex", "height" : "220px",
-            width : "270px", border : "2px solid white", borderRadius : "0.4em",
-            flexDirection : "column" , alignItems: "center", "marginTop" : "2em"
+            "backgroundColor" : "transparent", "display" : "flex", "height" : "220px",
+            "width" : "270px", "border" : "2px solid white", "borderRadius" : "0.4em",
+            "flexDirection" : "column", "alignItems": "center", "marginTop" : "2.4em"
         }}>
-            <h2 style = {{"fontSize" : "1.5em", marginTop : "0.3em", color : "black"}}>Your Progress </h2>
-            <div style = {{width : "100px",height : "100px", margin : "0.4em"}}>
+            <h2 style = {{"fontSize" : "1.5em", "marginTop" : "0.3em", "color" : "black"}}>Your Progress </h2>
+            <div style = {{width : "100px","height" : "100px", "margin" : "0.4em"}}>
                 <CircularProgressbar 
                 styles={buildStyles({
                     textSize: '16px',                

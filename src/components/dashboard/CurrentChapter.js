@@ -20,9 +20,9 @@ export default function CurrentChapter(props) {
                 style = {{"width" : "18rem", "backgroundColor" : "transparent", "color" : "white", "border" : "none"}}
             >
                 <Card.Body>
-                    <Card.Title style={{"color":"black","fontSize":"2.5rem"}}>{`Chapter ${props.currentChapter}`}</Card.Title>
-                    <Card.Text style={{"fontSize" : "1.2em", "color":"black", "fontWeight":"300"}}>
-                        Chapter
+                    <Card.Title style={{"color" : "black","fontSize" : "2.5rem"}}>{`Chapter ${props.currentChapter}`}</Card.Title>
+                    <Card.Text style={{"fontSize" : "1.2em", "color" : "black", "fontWeight" : "300"}}>
+                        The name of the current chapter
                     </Card.Text>
                     <Card.Text style={{"color":"black", "fontSize":"1.5rem", "fontWeight":"500"}}>
                         {`${parseInt(((new Date(props.currentChapterStartDate.toDate()) - new Date())) / (1000 * 60 * 60 * 24))} days`}
@@ -33,8 +33,8 @@ export default function CurrentChapter(props) {
             <Button
                 onClick = {() => {buttonHandler()}}
                 onMouseEnter = {() => setNextChapterBorder("green")}
-                onMouseLeave = {() => setNextChapterBorder("white")}
-                style = {{"fontWeight" : "600", "marginLeft" : "10px", "color" : "black", "width" : "9rem", "backgroundColor" : "#f7dcb4", "borderColor" : `${NextChapterBorder}`,"border" : "solid 2px white"}}>
+                onMouseLeave = {() => setNextChapterBorder("#CB7A02")}
+                style = {{"marginTop" : "7px", "fontWeight" : "bolder", "marginLeft" : "10px", "color" : "#CB7A02", "width" : "9rem", "backgroundColor" : "white", "border" : "solid 5px", "borderColor" : `${NextChapterBorder}`}}>
                 Next Chapter
             </Button>
         </Container>

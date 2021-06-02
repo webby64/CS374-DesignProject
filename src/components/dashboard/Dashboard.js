@@ -157,7 +157,7 @@ export default function Dashboard() {
     return (
         <Container style = {{"height" : "100vh", "width" : "100%", "margin" : "0", "padding" : "0"}} fluid>
             <Row>
-                <Col  md={{span: 2}} style={{"marginTop" : "10px", "marginLeft" : "10px"}}>{fetched && groupIsFull &&<ProfileImage/>} <div style = {{'marginLeft' :'10px', "fontWeight":'bold'}}>My Page</div></Col>         
+                <Col  md={{span: 2}} style={{"marginTop" : "5px", "marginLeft" : "5px"}}>{fetched && groupIsFull &&<ProfileImage/>}</Col>         
                 <Col md={{span: 8}}>{fetched && groupIsFull && <BookProgress bookName = {bookData.title} groupProgress = {(groupData.currentChapterNumber - 1) / groupData.bookInfo.totalChapterNumber} startDate = {groupData.createdAt}/>}</Col>
                 <Col md={{span: 1}} style={{"marginTop" : "5px", "marginLeft" : "95px"}}> <Button onClick = {handleLogout} onMouseEnter = {() => setLogOutBorder("red")} onMouseLeave = {() => setLogOutBorder("white")} style = {{"backgroundColor" : "transparent", "borderRadius" : "50%", "borderColor" : `${logOutBorder}`, "width" : "80px", "height" : "80px", "display" : "flex", "padding" : "0", "justifyContent" : "center", "alignItems" : "center", "border" : "5px solid white", "color":"black"}}> <strong>Log Out </strong> </Button></Col>
             </Row>
@@ -173,8 +173,7 @@ export default function Dashboard() {
                                 {/* {<h2>{JSON.stringify(groupData)}</h2>} */}
                                 {isQuestionsPhase && 
                                     <div style = {{
-                                        "position" : "absolute", "left" : "0px", "width" : "600px", "top" : "100px"
-                                    }}>
+                                        "position" : "absolute", "left" : "0px", "width" : "500px", "top" : "135px"}}>
                                         <QuestionsAfterChapter 
                                         bookId = {bookData.id} currentChapter = {groupData.currentChapterNumber} 
                                         genre = {bookData.genre} updateQuestionsAnswered = {() => setQuestionsAnswered(true)}/>
@@ -191,7 +190,7 @@ export default function Dashboard() {
                 </Row> : 
                 <div>
                     <Loader style = {{"marginLeft" : "45vw", "marginTop" : "20vh"}} color = "#ff9b05" />
-                    <h2 style = {{"marginLeft" : "35vw", "color" : "white"}}>Wait for group members to join</h2>
+                    <h2 style = {{"marginLeft" : "35vw", "color" : "black"}}>Wait for group members to join</h2>
                 </div>
             }
         </Container>

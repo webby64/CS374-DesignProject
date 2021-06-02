@@ -11,18 +11,19 @@ export default function MembersPanel(props) {
     return (
         <Card 
             className = "mt-4"
-            style = {{"height":"210px", "width" : "17rem", "backgroundColor" : "transparent", 
-            "color" : "black", "border" : "solid 2px white",
-            "padding" : "0", "margin" : "0"}}>
+            style = {{
+                "backgroundColor" : "transparent", "display" : "flex", "height" : "205px",
+                "width" : "270px", "border" : "2px solid white", "borderRadius" : "0.4em",
+                "flexDirection" : "column", "alignItems": "center"}}>
             <Card.Body>
-                <Container className = "d-flex">
+                <Container className = "d-flex" style={{"margin" : "0 8px 0", "padding" : "0", "color" : "black"}}>
                     <Image 
-                        style = {{"marginRight" : "20px", "marginTop" : "0px"}}
+                        style = {{"marginRight" : "2px"}}
                         src = {image} roundedCircle width = "20px"/>
-                    <Card.Title className = "mt-2">Group Members</Card.Title>
+                    <h2 className = "mt-2" style = {{"fontSize" : "1.5em"}}>Group Members</h2>
                 </Container>
                 <ListGroup>
-                    {props.groupMembers.map((member, index) =><ListGroupItem style = {{"backgroundColor" : "transparent", "border" : "0"}} key = {index}>{ListGroupUser(member.name)}</ListGroupItem>)}
+                    {props.groupMembers.map((member, index) =><ListGroupItem style = {{"backgroundColor" : "transparent", "border" : "0", "padding" : "1px", "margin" : "1px"}} key = {index}>{ListGroupUser(member.name)}</ListGroupItem>)}
                 </ListGroup>
             </Card.Body>
         </Card>
@@ -32,7 +33,7 @@ export default function MembersPanel(props) {
 
 function ListGroupUser(memberInfo) {
     return (
-        <Button style = {{"backgroundColor" : "white", "color" : "black", "border" : "solid 2px white", "width" : "200px", "maxHeight" : "25px", "padding":"0", "whiteSpace":""}}>
+        <Button style = {{"fontWeight" : "300", "margin" : "0", "backgroundColor" : "white", "color" : "black", "border" : "solid 2px white", "width" : "200px", "maxHeight" : "30px", "padding" : "0"}}>
             {<>{memberInfo}</>}
         </Button>
     )

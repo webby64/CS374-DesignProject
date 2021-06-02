@@ -85,9 +85,7 @@ export default function ChatRoom(props) {
           {/* <h2>{JSON.stringify(membersObject)}</h2> */}
           <Container className = "ml-0 mr-0"
             style = {{
-              'position': 'relative',
-              "zIndex": 2,
-              "backgroundColor" : "#CCD4E6", "height" : "450px", "width" : "500px",
+              "backgroundColor" : "transparent", "height" : "450px", "width" : "500px",
               "border" : "solid 2px white", "borderRadius" : "0.4em", "marginTop" : "3em",
               "display" : "flex", "justifyContent" : "space-between", "flexDirection" : "column"
             }}>
@@ -96,24 +94,20 @@ export default function ChatRoom(props) {
                 {/* {messages && JSON.stringify(messages)} */}
                 <span ref={dummy}></span>
               </main>
-              
-          
+
               <Form onSubmit={sendMessage} className = "chatForm" 
                 style = 
                 {{
                   // "border" : "solid 2px white", "borderRadius" : "0.4em",
                   "width" : "100%",
-                  "display" : "flex", "justifyContent" : "space-between", 'marginTop' : '10px',
-                  'borderTop' : 'solid white 3px'
-
+                  "display" : "flex", "justifyContent" : "space-between"
                 }}>
-                  
                   {/* <input 
                     value={newMessage} onChange={(e) => setNewMessage(e.target.value)} 
                     placeholder="Discuss!" 
                   /> */}
-                  <Form.Group>
                   
+                  <Form.Group>
                     <Form.Control as = "textarea" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} 
                     placeholder="Discuss!" rows = {1} style = {{'width': '365px', "margin" : "0.5em", "borderRadius" : "0.6 em"}}
                     onKeyDown = {(e) => {if (e.key === 'Enter') {e.preventDefault() ;sendMessageButton.current.click()}}}
@@ -121,7 +115,7 @@ export default function ChatRoom(props) {
                   </Form.Group>
                   <Button 
                     type="submit" disabled={!newMessage}
-                    style = {{'marginBottom': '5px','marginTop': '5px' ,"cursor" : "pointer", "fontWeight" : "bold", }}
+                    style = {{"margin" : "0.5em", "cursor" : "pointer", "fontWeight" : "bold"}}
                     ref = {sendMessageButton}
                   > Send </Button>
               </Form>

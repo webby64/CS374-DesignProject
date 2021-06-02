@@ -107,8 +107,8 @@ function ViewMainModal(buttonPopup, setButtonPopup) {
               }
           }
           
-          setUserData(theUserObject)
-          setGroupContributionstate(theUserObject.chaptersRead * 20)
+          setUserData(prevUserData => [...prevUserData, theUserObject])
+          setGroupContributionstate(theUserObject.groupContr)
           setbooksReadState(theUserObject.booksRead)
           setWishList(theUserObject.wishList)
           setFavAuthorState(theUserObject.favAuthor)
@@ -116,7 +116,7 @@ function ViewMainModal(buttonPopup, setButtonPopup) {
           setNumBooksReadState(theUserObject.numberOfBooks)
           setnumBooksReadList(theUserObject.numBooksList)
           setpagesReadList(theUserObject.pagesReadList)
-          setProgress(theUserObject.chaptersRead * 20)
+          setProgress(theUserObject.currBookProgress)
           setNameState(theUserObject.name)
           setChartLabelsState(theUserObject.chartLabels)
           setUserProfilePicUrl(theUserObject.imgUrl)
