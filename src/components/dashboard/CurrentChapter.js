@@ -22,7 +22,7 @@ export default function CurrentChapter(props) {
                 <Card.Body>
                     <Card.Title style={{"color":"black","fontSize":"2.5rem"}}>{`Chapter ${props.currentChapter}`}</Card.Title>
                     <Card.Text style={{"fontSize" : "1.2em", "color":"black", "fontWeight":"300"}}>
-                        The name of the current chapter
+                        Chapter
                     </Card.Text>
                     <Card.Text style={{"color":"black", "fontSize":"1.5rem", "fontWeight":"500"}}>
                         {`${parseInt(((new Date(props.currentChapterStartDate.toDate()) - new Date())) / (1000 * 60 * 60 * 24))} days`}
@@ -34,7 +34,7 @@ export default function CurrentChapter(props) {
                 onClick = {() => {buttonHandler()}}
                 onMouseEnter = {() => setNextChapterBorder("green")}
                 onMouseLeave = {() => setNextChapterBorder("white")}
-                style = {{"fontWeight" : "600", "marginLeft" : "10px", "color" : "black", "width" : "9rem", "backgroundColor" : "transparent", "borderColor" : `${NextChapterBorder}`,"border" : "solid 2px white"}}>
+                style = {{"fontWeight" : "600", "marginLeft" : "10px", "color" : "black", "width" : "9rem", "backgroundColor" : "#f7dcb4", "borderColor" : `${NextChapterBorder}`,"border" : "solid 2px white"}}>
                 Next Chapter
             </Button>
         </Container>
