@@ -18,3 +18,4 @@ We have included all the components inside src/components folder.
 
 - Dashboard is the main folder which consists all the components of the group page and user profile. 
 - To make a smooth communication between components, we use contexts to send user info among different components.
+- PS: Please, don't open the website with your mobile phone. If opening in a wide monitor, zoom-in to some extent for a better look and please, make sure your window-size is not reduced.
