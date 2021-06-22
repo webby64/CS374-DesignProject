@@ -28,7 +28,6 @@ export default function UserProgress(props) {
 
     return (
         <div style = {{
-            zIndex: 1,
             "backgroundColor" : "transparent", display : "flex", "height" : "220px",
             width : "270px", border : "2px solid white", borderRadius : "0.4em",
             flexDirection : "column" , alignItems: "center", "marginTop" : "2em"

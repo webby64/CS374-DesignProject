@@ -13,12 +13,10 @@ export default function Tools() {
         <Container style = {{
             "border": "solid 2px white", "borderRadius" : "0.4em","color" : "black", 
             "backgroundColor" : "transparent", "fontSize" : "0.6em", "width" : "295px",
-            "height" : "210px", "padding" : "0", "marginLeft" : "10px"   
-        }} className = "mt-4">
-            <Card.Title style = {{"marginTop" : "0.6em", "marginLeft" : "0.6em"}} className = "mt-2 center">Tools:</Card.Title>
-
+            "height" : "205px", "padding" : "0", "marginLeft" : "10px"}} className = "mt-4">
+            <Card.Title style = {{"paddingTop" : "12px", "marginLeft" : "0.8em", "fontSize" : "2.8em"}} className = "mt-2 center">Tools</Card.Title>
             {/* <Row><h2 style = {{"marginTop" : "0.6em", "marginLeft" : "0.6em"}}>Tools: </h2></Row> */}
-            <Row>
+            <Row style = {{"marginTop" : "10px"}}>
                 <Col>
                     <Container style = {{
                         "margin" : "0",
@@ -78,10 +76,10 @@ export default function Tools() {
                         <Button style = {{
                             "backgroundColor" : "white",
                             "color" : "#CB7A02",
-                            "fontWeight" : "550",
+                            "fontWeight" : "bolder",
                             "border" : "solid 2px #CB7A02",
-                            "width" : "105px"
-                        }} className = "tools-button" target="_blank" href = "https://openlibrary.org/">Books(free)</Button>
+                            "width" : "100px"
+                        }} className = "tools-button" target="_blank" href = "https://openlibrary.org/">Books</Button>
                     </Container>    
                 </Col>
             </Row>

@@ -35,9 +35,9 @@ export default function QuestionsAfterChapter(props) {
 
     return (
         <Container >
-            <Card style = {{"backgroundColor" : "white", "color" : "#ff9b05", "fontWeight" : "800", "border" : "2px solid "}}>
+            <Card style = {{"backgroundColor" : "white", "color" : "black", "fontWeight" : "600", "border" : "2px solid "}}>
                 <Card.Body>
-                    <Card.Title><strong>Discuss about the following questions:</strong></Card.Title>
+                    <Card.Title><strong style = {{color:'green'}}> Discuss about the following questions:</strong></Card.Title>
                     {questions.map((question, index) => <QuestionContainer key = {index} text = {question.text} incrementClickedNumber = {() => {setClickedNumber(prev => prev + 1)}}/>)}
                 </Card.Body>
             </Card>
@@ -57,7 +57,7 @@ function QuestionContainer(props) {
 
     return (
         <Card.Text>
-            <input type = "checkbox" onClick = {handleClick} disabled = {checked}/>
+            <input type = "checkbox" style = {{backgroundColor: 'green'}} onClick = {handleClick} disabled = {checked}/>
             {props.text}
         </Card.Text>
     )

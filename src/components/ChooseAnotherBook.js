@@ -37,12 +37,12 @@ export default function ChooseAnotherBook() {
     
 
     return (
-        <div style = {{marginTop : "15vh", display : "flex", flexDirection : "column", alignItems : "center"}}>
-            <div style = {{margin : "5vh"}}>
-                <Button onClick = {() => {setGenre('novels')}}>Novels</Button>
-                <Button onClick = {() => {setGenre('philosophy')}}>Philosophy</Button>
-                <Button onClick = {() => {setGenre('psychology')}}>Psychology</Button>
-                <Button onClick = {() => {setGenre('non-fiction')}}>Non-finction</Button>
+        <div style = {{marginTop : "5vh", display : "flex", flexDirection : "column", alignItems : "center"}}>
+            <div style = {{margin : "1vh"}}>
+                <Button style={{"margin":"5px"}} onClick = {() => {setGenre('novels')}}>Novels</Button>
+                <Button style={{"margin":"5px"}} onClick = {() => {setGenre('philosophy')}}>Philosophy</Button>
+                <Button style={{"margin":"5px"}} onClick = {() => {setGenre('psychology')}}>Psychology</Button>
+                <Button style={{"margin":"5px"}} onClick = {() => {setGenre('non-fiction')}}>Non-finction</Button>
             </div>
             <div>
                 {books.map((book) => <BookCard key = {book.id} title = {book.title} author = {book.author} genre = {genre} bookID = {book.id}/>)}
@@ -141,7 +141,7 @@ function BookCard(props) {
                 <Card.Text>
                     {props.author}
                 </Card.Text>
-                <Button style = {{"marginLeft" : "2vw"}} onClick = {handleButton}>Choose</Button>
+                <Button style = {{"marginLeft" : "4vw"}} onClick = {handleButton}>Choose</Button>
             </Card.Body>
         </Card>
     )

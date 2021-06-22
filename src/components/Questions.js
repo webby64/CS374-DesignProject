@@ -19,7 +19,7 @@ export default function Questions(props) {
         },
         {
             id : "non-fiction",
-            questionText : "Do u want to learn how to improve yourself?",
+            questionText : "Do you want to learn how to improve yourself?",
             answerOptions : [
                 {answerText : "Yes", genre : "non-fiction"},
                 {answerText : "No", genre : "non-fiction"}
